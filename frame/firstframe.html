@@ -1,26 +1,85 @@
-<html>
-    <body>
-      <section style="background-color:lightblue;">
-        <h3 style="font-size:100px;">Important links</h3>
-        </section>
-        <p style="font-size:60px;"><a href="https://example.com/link1">Important Link 1</a></p>
-        <p style="font-size:60px;"><a href="https://example.com/link2">Important Link 2</a></p>
-        <p style="font-size:60px;"><a href="sks.png#zoom=500" target="center">Important Link 3</a></p>
-        <hr>
-        <section style="background-color:lightblue;">
-        <h3 style="font-size:80px;">PREVIOUS QUESTION PAPERS</h3>
-        </section>
-        <p style="font-size:70px;"><a href="adi2.pdf#zoom=150" target="center"> Here To View Previous Question Paper</a></p>
-        <hr>
-        <section style="background-color:lightblue;">
-          <h3 style="font-size:100px;">APPLY ONLINE</h3>
-        </section>
-  <p>
-    <a style="font-size:60px;" href="https://example.com/apply21">
-      Click Here To Apply Online - Advt. No. 21 Of 2025 - Executive Officer (Group-B) 
-      In Municipal Corporation Urban Local Bodies Department, Haryana
-    </a>
-  </p>
-  <hr>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>first frame</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        #left-frame {
+            width: 100%;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: white;
+            border-right: 2px solid #ccc;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .project-card {
+            background-color: #e0f7fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .project-card h3 {
+            margin-top: 0;
+        }
+        .project-card p {
+            margin: 10px 0;
+        }
+        .project-card a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+  </head>
+  <body>
+    <section id="left-frame">
+      <div class="project-grid">
+        <div class="project-card">
+          <h3 style="font-size: 100px">Important links</h3>
+          <p style="font-size: 60px">
+            <a href="https://example.com/link1">Important Link 1</a>
+          </p>
+          <p style="font-size: 60px">
+            <a href="https://example.com/link2">Important Link 2</a>
+          </p>
+          <p style="font-size: 60px">
+            <a href="sks.png#zoom=500" target="center">Important Link 3</a>
+          </p>
+        </div>
+        <div class="project-card">
+          <h3 style="font-size: 80px">PREVIOUS QUESTION PAPERS</h3>
+          <p style="font-size: 70px">
+            <a href="adi2.pdf#zoom=150" target="center">
+              Here To View Previous Question Paper</a
+            >
+          </p>
+        </div>
+        <div class="project-card">
+          <h3 style="font-size: 100px">APPLY ONLINE</h3>
+          <p>
+            <a style="font-size: 60px" href="https://example.com/apply21">
+              Click Here To Apply Online - Advt. No. 21 Of 2025 - Executive
+              Officer (Group-B) In Municipal Corporation Urban Local Bodies
+              Department, Haryana
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
