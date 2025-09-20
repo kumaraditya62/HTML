@@ -10,14 +10,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(#833AB4,#FD1D1D,#FCB045);
+    background: linear-gradient(#232526,#414345)
 }
 
 .calculator{
    border: 1px solid #717377;
    padding: 20px;
    border-radius: 16px;
-   background: transparent;
+   background: linear-gradient(#833AB4,#FD1D1D,#FCB045);
    box-shadow: 0px 3px 15px rgba(113,115,119,0.5);
 
 }
