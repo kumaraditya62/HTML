@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Advanced Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+  </head>
+  <body>
+    <form action="submit.php" method="POST" enctype="multipart/form-data">
+      <label for="username">Username (alphanumeric only):</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        pattern="[A-Za-z0-9]{5,}"
+        required
+      />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <label for="password">Password (min 6 chars):</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        minlength="6"
+        required
+      />
+      <label for="resume">Upload Resume (PDF only):</label>
+      <input type="file" id="resume" name="resume" accept=".pdf" />
+      <label for="course">Preferred Course:</label>
+      <input list="courses" name="course" id="course" />
+      <datalist id="courses">
+        <option value="Web Development"></option>
+        <option value="Data Science"></option>
+        <option value="Cybersecurity"></option>
+        <option value="UI/UX Design"></option>
+      </datalist>
+
+      <fieldset>
+        <legend>Personal Info</legend>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" />
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </fieldset>
+      <input type="hidden" name="referrer" value="copilot-form" />
+      <label for="bio">Short Bio:</label>
+      <textarea id="bio" name="bio" rows="4"></textarea>
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>

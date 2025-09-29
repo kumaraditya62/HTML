@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="ET.css" />
+  </head>
+  <body>
+    <div class="tracker">
+      <h2>💰 Expense Tracker</h2>
+      <input type="text" id="desc" placeholder="Description" />
+      <input type="number" id="amount" placeholder="Amount" />
+      <button onclick="addExpense()">Add</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="expenses"></tbody>
+      </table>
+
+      <h3>Total: ₹<span id="total">0</span></h3>
+    </div>
+
+    <script src="Et.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Form tag</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 2rem; }
+    form { max-width: 600px; margin: auto; background: white; padding: 2rem; border-radius: 8px; }
+    input, textarea, select { width: 100%; margin-top: 1rem; padding: 0.5rem; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">FORM</h2>
+  <form>
+    <input type="text" placeholder="Full Name" required />
+    <input type="email" placeholder="Email" required />
+    <input type="text" placeholder="Phone Number" required />
+    <textarea rows="4" placeholder="Summary"></textarea>
+    <select>
+      <option>Frontend Developer</option>
+      <option>Backend Developer</option>
+      <option>Full Stack Developer</option>
+    </select>
+    <textarea rows="4" placeholder="Skills (comma separated)"></textarea>
+    <textarea rows="4" placeholder="Experience"></textarea>
+    <button type="submit">Generate Resume</button>
+  </form>
+</body>
+</html>
