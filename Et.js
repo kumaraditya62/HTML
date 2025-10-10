@@ -1,38 +1,99 @@
-const expenses = [];
+const balanceEl = document.getElementById("balance");
+const incomeAmountEl = document.getElementById("income-amount");
+const expenseAmountEl = document.getElementById("expense-amount");
+const transactionListEl = document.getElementById("transaction-list");
+const transactionFormEl = document.getElementById("transaction-form");
+const descriptionEl = document.getElementById("description");
+const amountEl = document.getElementById("amount");
 
-function addExpense() {
-  const desc = document.getElementById("desc").value;
-  const amount = document.getElementById("amount").value;
-  if (desc && amount) {
-    expenses.push({ desc, amount });
-    renderExpenses();
-    document.getElementById("desc").value = "";
-    document.getElementById("amount").value = "";
-  }
-}
+let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
-function deleteExpense(index) {
-  expenses.splice(index, 1);
-  renderExpenses();
-}
+transactionFormEl.addEventListener("submit", addTransaction);
 
-function renderExpenses() {
-  const tbody = document.getElementById("expenses");
-  const totalDisplay = document.getElementById("total");
-  tbody.innerHTML = "";
+function addTransaction(e) {
+  e.preventDefault();
 
-  let total = 0;
+  // get form values
+  const description = descriptionEl.value.trim();
+  const amount = parseFloat(amountEl.value);
 
-  expenses.forEach((e, i) => {
-    total += parseFloat(e.amount);
-    const row = `
-      <tr>
-        <td>${e.desc}</td>
-        <td>₹${e.amount}</td>
-        <td><button onclick="deleteExpense(${i})">🗑️ Delete</button></td>
-      </tr>`;
-    tbody.innerHTML += row;
+  transactions.push({
+    id: Date.now(),
+    description,
+    amount,
   });
 
-  totalDisplay.textContent = total.toFixed(2);
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  updateTransactionList();
+  updateSummary();
+
+  transactionFormEl.reset();
 }
+
+function updateTransactionList() {
+  transactionListEl.innerHTML = "";
+
+  const sortedTransactions = [...transactions].reverse();
+
+  sortedTransactions.forEach((transaction) => {
+    const transactionEl = createTransactionElement(transaction);
+    transactionListEl.appendChild(transactionEl);
+  });
+}
+
+function createTransactionElement(transaction) {
+  const li = document.createElement("li");
+  li.classList.add("transaction");
+  li.classList.add(transaction.amount > 0 ? "income" : "expense");
+
+  li.innerHTML = `
+    <span>${transaction.description}</span>
+    <span>
+  
+    ${formatCurrency(transaction.amount)}
+      <button class="delete-btn" onclick="removeTransaction(${transaction.id})">x</button>
+    </span>
+  `;
+
+  return li;
+}
+
+function updateSummary() {
+  // 100, -50, 200, -200 => 50
+  const balance = transactions.reduce((acc, transaction) => acc + transaction.amount, 0);
+
+  const income = transactions
+    .filter((transaction) => transaction.amount > 0)
+    .reduce((acc, transaction) => acc + transaction.amount, 0);
+
+  const expenses = transactions
+    .filter((transaction) => transaction.amount < 0)
+    .reduce((acc, transaction) => acc + transaction.amount, 0);
+
+  // update ui => todo: fix the formatting
+  balanceEl.textContent = formatCurrency(balance);
+  incomeAmountEl.textContent = formatCurrency(income);
+  expenseAmountEl.textContent = formatCurrency(expenses);
+}
+
+function formatCurrency(number) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(number);
+}
+
+function removeTransaction(id) {
+  // filter out the one we wanted to delete
+  transactions = transactions.filter((transaction) => transaction.id !== id);
+
+  localStorage.setItem("transcations", JSON.stringify(transactions));
+
+  updateTransactionList();
+  updateSummary();
+}
+
+// initial render
+updateTransactionList();
+updateSummary();
