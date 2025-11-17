@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplication Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 300px;
+    }
+    td {
+      border: 1px solid #333;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+      padding: 8px;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <table id="MultiplicationTable">
+    <tr>
+      <th>Expression</th>
+      <th>Result</th>
+    </tr>
+  </table>
+
+  <script>
+    const table = document.getElementById('MultiplicationTable');
+    const baseNumber = 5;
+
+    for (let i = 1; i <= 10; i++) {
+      const row = document.createElement('tr');
+      const expressionCell = document.createElement('td');
+      const resultCell = document.createElement('td');
+
+      expressionCell.textContent = `${baseNumber} x ${i}`;
+      resultCell.textContent = baseNumber * i;
+
+      row.appendChild(expressionCell);
+      row.appendChild(resultCell);
+      table.appendChild(row);
+    }
+  </script>
+</body>
+</html>
