@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" onclick="alertplace()" value="open alert" />
+    <div id="alertcontainer">
+      <div id="alert">
+        <p>Hello Welcome to my webpage</p>
+        <p onclick="alertplace">OK</p>
+      </div>
+    </div>
+    <style>
+      #alertcontainer {
+        display: none;
+        background-color: rgba(25, 3, 3, 0.587);
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        position: fixed;
+        text-align: center;
+      }
+      #alert {
+        background-color: rgba(255, 255, 255, 0.706);
+        border: 2px solid black;
+        position: fixed;
+        width: 50%;
+        margin-left: 25%;
+        top: 30%;
+      }
+      #alert p:nth-child(2) {
+        cursor: pointer;
+        background-color: rgba(219, 19, 129, 0.767);
+      }
+    </style>
+    <script>
+      var a = Number(prompt("Enter first number:"));
+      var b = Number(prompt("Enter second number:"));
+      var add = a + b;
+      var sub = a - b;
+      var mul = a * b;
+      var div = a / b;
+      alert(
+        "Addition: " +
+          add +
+          "\nSubtraction: " +
+          sub +
+          "\nMultiplication: " +
+          mul +
+          "\nDivision: " +
+          div
+      );
+      document.write(
+        "Addition: " +
+          add +
+          "<br>Subtraction: " +
+          sub +
+          "<br>Multiplication: " +
+          mul +
+          "<br>Division: " +
+          div
+      );
+
+      function alertplace() {
+        var a = document.getElementById("alertcontainer");
+        if (a.style.display === "none") {
+          a.style.display = "block";
+        } else {
+          a.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
