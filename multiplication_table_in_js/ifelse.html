@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let number = prompt("Enter a number:");
+      number = Number(number);
+      let result = "";
+      if (number > 0) {
+        result = "The number is positive.";
+      } else if (number < 0) {
+        result = "The number is negative.";
+      } else {
+        result = "The number is zero.";
+      }
+      document.body.innerHTML = `${result}`;
+    </script>
+  </body>
+</html>
