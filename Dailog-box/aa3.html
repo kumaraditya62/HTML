@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prompt Alert Example</title>
+    <style>
+      .divclass {
+        margin: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="divclass">
+      <button onclick="promptalert()">A prompt alert example</button>
+    </div>
+
+    <script type="text/javascript">
+      function promptalert() {
+        var promval = prompt(
+          "Please enter your email to proceed!",
+          "Email here"
+        );
+
+        if (promval != null) {
+          alert("You entered following email address: " + promval);
+        } else {
+          alert("You did not choose to proceed!");
+        }
+      }
+    </script>
+  </body>
+</html>
