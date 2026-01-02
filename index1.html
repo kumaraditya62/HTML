@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Class</title>
+  <link rel="stylesheet" href="dstyle.css" />
+</head>
+<body>
+  <header id="header">
+    <h2 id="header-title">Department of BCA</h2>
+    <p id="tagline">R.N College Hajipur</p>
+  </header>
+
+  <div id="content">
+    <h4>Courses</h4>
+    <ul id="items">
+      <li class="list-items">BCA</li>
+      <li class="list-items">B.Sc</li>
+      <li class="list-items">MCA</li>
+      <li class="list-items">M.Sc</li>
+    </ul>
+
+    <form id="subjectForm">
+      <select id="courseSelect">
+        <option value="BCA">BCA</option>
+        <option value="B.Sc">B.Sc</option>
+        <option value="MCA">MCA</option>
+        <option value="M.Sc">M.Sc</option>
+      </select>
+      <input type="text" id="subjectInput" placeholder="Enter subject name" />
+      <input type="submit" value="Add Subject" />
+    </form>
+  </div>
+
+  <script src="ind.js"></script>
+</body>
+</html>
